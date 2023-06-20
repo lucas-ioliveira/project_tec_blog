@@ -48,7 +48,7 @@ e com os dados certos para a liberação do acesso.
 o e-mail precisa ser um válido, o usuário precisa ter >= 6 caracteres,
 a senha precisa ter >= 6 caracteres.
 
-![Rota de cadastro de usuário](documentacao/img/cadastro_usuario.png)
+![Rota de cadastro de usuário](documentacao/img/cadastro_usuario.PNG)
 
 #### Rota para o dashboard (accounts/dashboard/);
 
@@ -56,7 +56,7 @@ a senha precisa ter >= 6 caracteres.
 Aqui é onde o usuário LOGADO consegue cadastrar o seu contato,
 o cadastro também conta com um campo onde consegue inserir uma imagem.
 
-![Rota para o dashboard](documentacao/img/dashboard.png)
+![Rota para o dashboard](documentacao/img/dashboard.PNG)
 
 #### Rota para o index
 
@@ -65,7 +65,7 @@ conta com um sistema de paginação (limitei 3 contatos por página para exemplo
 somente desse post e lá poderá realizar comentários.
 
 
-![Rota para o index](documentacao/img/index.png)
+![Rota para o index](documentacao/img/index.PNG)
 
 - Visualização do post.
 
