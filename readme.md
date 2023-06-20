@@ -3,7 +3,7 @@
 ### Teste de código.
 
 Nesse repositório contém um projeto fullstack realizado o front-end com o BootStrap e o back-end com python e o framework
-Django.
+Django, o códidigo encontra-se na branch develop.
 
 O projeto consiste em um sistema de blog, onde o usuário do sistema consegue realizar login no sistema,
 cadastrar novos usuários, cadastrar novos posts, comentários nos posts e visualizar os posts em uma página inicial.
