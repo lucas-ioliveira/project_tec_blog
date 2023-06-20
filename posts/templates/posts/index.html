@@ -1,0 +1,77 @@
+{% extends 'base.html'%}
+{%block conteudo%}
+<h1 class="mt-5">Posts</h1>
+
+<!-- CONTENT -->
+<!-- CONTENT -->
+<div class="card-columns mt-4">
+                
+    {% for post in posts  %}
+
+        <div class="card">
+
+            {% if post.post_image%}
+
+                <a href="#">
+                   
+                    <img class="card-img-top"
+                        src="{{ post.post_image.url }}"
+                        alt="{{ post.post_title }}">
+                </a>
+
+            {% endif %} 
+
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="#">
+                        {{ post.post_title }}
+                    </a>
+                </h5>
+                
+                <p class="card-text">{{ post.post_excerpt}}</p>
+                
+                <p class="card-text">
+                    <small class="text-muted">
+                        {{ post.post_date}}
+                        | 
+                        {{ post.comment_number }} comment(s)
+                        |
+                        {{ post.post_category }}
+
+                    </small>
+                </p>
+
+                <div class="text-right">
+                    <a href="{% url 'ver_post' post.id %}" class="btn btn-outline-secondary">
+                        more...
+                    </a>
+                </div>
+            
+            </div>
+       
+        </div>
+        
+    {% endfor %}
+
+</div>
+    <!--/CONTENT-->
+
+    <!-- Paginação no meu html.-->
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% for pagina in posts.paginator.page_range %}
+        {% if posts.number == pagina %}
+        <li class="page-item active">
+            <a class="page-link" href="?p={{ pagina }}&termo={{ request.GET.termo }}">{{ pagina }}</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="?p={{ pagina }}">{{ pagina }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+
+{%endblock%}
+
