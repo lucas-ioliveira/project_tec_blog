@@ -7,7 +7,7 @@ class CommentAdmin(admin.ModelAdmin):
         "id",
         "comment_name",
         "comment_email",
-        "comment_post",
+        # "comment_post",
         "comment_date",
         "comment_published",
     )
