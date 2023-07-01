@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "accounts",
     "posts",
     "comentarios",
-    "django_summernote",
+    "bootstrap4",
+    
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "templates/static")]
 # Configuração da pasta com arquivos de mídia.
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "media/"
+
 # Mensagens com o django
 from django.contrib.messages import constants
 

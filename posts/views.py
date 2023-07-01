@@ -13,7 +13,11 @@ from django.core.paginator import Paginator
 # Importação do módulo do Django
 from django.contrib import messages
 
+from django.views.generic.edit import UpdateView
 from comentarios.models import Comment
+# from comentarios.forms import FormCommentModel
+from comentarios.forms import FormComment
+
 
 
 def index(request):
@@ -27,26 +31,37 @@ def index(request):
 # Função que pega um dado no banco de dados e se não existir levanta um erro 404.
 def ver_post(request, post_id):
     post = get_object_or_404(Posts, id=post_id)
-    return render(request, "posts/ver_post.html", {"post": post})
-
-
-# Comentario
-def Comentario(request):
-    # Validando o formulário caso não tenha sido postado nada.
-    if request.method != "POST":
-        messages.info(request, "Nada postato!")
-        return render(request, "ver_post.html")
+    
+    # nova funcionalidade, exibir os comentários nos posts.
+    comment = Comment.objects.order_by("id").filter(comment_published=True)
 
     # Coletando os dados
-    nome = request.POST.get("nome")
-    email = request.POST.get("email")
-    comentario = request.POST.get("comentario")
+    if str(request.method) == 'POST':
+        
+        form = FormComment(request.POST)
+        
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Comentário enviado com sucesso.')
+            form = FormComment()
+       
+        else:
+            messages.success(request, 'Erro ao enviar comentário.')
+    else:
+        form = FormComment()
+   
+    return render(request, "posts/ver_post.html", 
+                  {"post": post, "comment": comment,
+                  "form": form})
 
-    cadastro_comentario = Comentario.object(
-        comment_name=nome,
-        comment_email=email,
-        comment=comentario,
-    )
 
-    cadastro_comentario.save()
-    return redirect("posts/ver_post.html")
+
+
+
+
+
+
+
+
+
+

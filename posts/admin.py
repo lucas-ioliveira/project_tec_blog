@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Categoria, Posts
-from django_summernote.admin import SummernoteModelAdmin
 
 # Modificando exibição
 

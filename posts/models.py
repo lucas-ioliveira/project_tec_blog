@@ -33,6 +33,7 @@ class Posts(models.Model):
         upload_to="post_img/%Y/%m/", blank=True, null=True, verbose_name="Image"
     )
     post_published = models.BooleanField(default=False, verbose_name="Published")
+    
 
     def __str__(self) -> str:
         return self.post_title

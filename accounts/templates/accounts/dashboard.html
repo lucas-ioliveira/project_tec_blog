@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
 {%block titulo%}Dashboard de {{user}} | {%endblock%}
 
 {% block conteudo %}
@@ -19,7 +19,7 @@
     <form action="{%url 'dashboard'%}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <table class="table">
-            {{form}}
+            {% bootstrap_form form %}
             <tr>
                 <td>
                     <button type="submit" class="btn btn-info">Enviar</button>

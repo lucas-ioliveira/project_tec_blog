@@ -18,7 +18,7 @@ from .models import FormContato
 def login(request):
     # Validando o formulário caso não tenha sido postado nada.
     if request.method != "POST":
-        messages.info(request, "Nada postato!")
+        messages.info(request, "Nada postado!")
         return render(request, "accounts/login.html")
 
     # Coletando os dados
